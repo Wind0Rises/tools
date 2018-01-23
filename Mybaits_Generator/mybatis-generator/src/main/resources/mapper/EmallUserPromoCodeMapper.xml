@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmallUserPromoCodeMapper">
+  <resultMap id="BaseResultMap" type="model.liu.EmallUserPromoCode">
+    <id column="userPromoCode" jdbcType="VARCHAR" property="userPromoCode" />
+    <result column="activitySeq" jdbcType="BIGINT" property="activitySeq" />
+    <result column="merchantActSeq" jdbcType="BIGINT" property="merchantActSeq" />
+    <result column="discountsSeq" jdbcType="BIGINT" property="discountsSeq" />
+    <result column="discountAmount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="getDate" jdbcType="DATE" property="getDate" />
+    <result column="expiryDate" jdbcType="DATE" property="expiryDate" />
+    <result column="promoType" jdbcType="VARCHAR" property="promoType" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="userNo" jdbcType="VARCHAR" property="userNo" />
+    <result column="userMobile" jdbcType="VARCHAR" property="userMobile" />
+    <result column="userEmail" jdbcType="VARCHAR" property="userEmail" />
+    <result column="usedTime" jdbcType="TIMESTAMP" property="usedTime" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="model.liu.EmallUserPromoCode">
+    <selectKey keyProperty="userPromoCode" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into emall_user_promo_code (activitySeq, merchantActSeq, discountsSeq, 
+      discountAmount, getDate, expiryDate, 
+      promoType, status, userNo, 
+      userMobile, userEmail, usedTime, 
+      createTime, updateTime)
+    values (#{activitySeq,jdbcType=BIGINT}, #{merchantActSeq,jdbcType=BIGINT}, #{discountsSeq,jdbcType=BIGINT}, 
+      #{discountAmount,jdbcType=DECIMAL}, #{getDate,jdbcType=DATE}, #{expiryDate,jdbcType=DATE}, 
+      #{promoType,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{userNo,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{usedTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="model.liu.EmallUserPromoCode">
+    update emall_user_promo_code
+    set activitySeq = #{activitySeq,jdbcType=BIGINT},
+      merchantActSeq = #{merchantActSeq,jdbcType=BIGINT},
+      discountsSeq = #{discountsSeq,jdbcType=BIGINT},
+      discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      getDate = #{getDate,jdbcType=DATE},
+      expiryDate = #{expiryDate,jdbcType=DATE},
+      promoType = #{promoType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      userNo = #{userNo,jdbcType=VARCHAR},
+      userMobile = #{userMobile,jdbcType=VARCHAR},
+      userEmail = #{userEmail,jdbcType=VARCHAR},
+      usedTime = #{usedTime,jdbcType=TIMESTAMP},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP}
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+  </select>
+  <resultMap id="BaseResultMap" type="model.liu.EmallUserPromoCode">
+    <id column="userPromoCode" jdbcType="VARCHAR" property="userPromoCode" />
+    <result column="activitySeq" jdbcType="BIGINT" property="activitySeq" />
+    <result column="merchantActSeq" jdbcType="BIGINT" property="merchantActSeq" />
+    <result column="discountsSeq" jdbcType="BIGINT" property="discountsSeq" />
+    <result column="discountAmount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="getDate" jdbcType="DATE" property="getDate" />
+    <result column="expiryDate" jdbcType="DATE" property="expiryDate" />
+    <result column="promoType" jdbcType="VARCHAR" property="promoType" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="userNo" jdbcType="VARCHAR" property="userNo" />
+    <result column="userMobile" jdbcType="VARCHAR" property="userMobile" />
+    <result column="userEmail" jdbcType="VARCHAR" property="userEmail" />
+    <result column="usedTime" jdbcType="TIMESTAMP" property="usedTime" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="model.liu.EmallUserPromoCode">
+    <selectKey keyProperty="userPromoCode" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into emall_user_promo_code (activitySeq, merchantActSeq, discountsSeq, 
+      discountAmount, getDate, expiryDate, 
+      promoType, status, userNo, 
+      userMobile, userEmail, usedTime, 
+      createTime, updateTime)
+    values (#{activitySeq,jdbcType=BIGINT}, #{merchantActSeq,jdbcType=BIGINT}, #{discountsSeq,jdbcType=BIGINT}, 
+      #{discountAmount,jdbcType=DECIMAL}, #{getDate,jdbcType=DATE}, #{expiryDate,jdbcType=DATE}, 
+      #{promoType,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{userNo,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{usedTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="model.liu.EmallUserPromoCode">
+    update emall_user_promo_code
+    set activitySeq = #{activitySeq,jdbcType=BIGINT},
+      merchantActSeq = #{merchantActSeq,jdbcType=BIGINT},
+      discountsSeq = #{discountsSeq,jdbcType=BIGINT},
+      discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      getDate = #{getDate,jdbcType=DATE},
+      expiryDate = #{expiryDate,jdbcType=DATE},
+      promoType = #{promoType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      userNo = #{userNo,jdbcType=VARCHAR},
+      userMobile = #{userMobile,jdbcType=VARCHAR},
+      userEmail = #{userEmail,jdbcType=VARCHAR},
+      usedTime = #{usedTime,jdbcType=TIMESTAMP},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP}
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+  </select>
+  <resultMap id="BaseResultMap" type="model.EmallUserPromoCode">
+    <id column="userPromoCode" jdbcType="VARCHAR" property="userPromoCode" />
+    <result column="activitySeq" jdbcType="BIGINT" property="activitySeq" />
+    <result column="merchantActSeq" jdbcType="BIGINT" property="merchantActSeq" />
+    <result column="discountsSeq" jdbcType="BIGINT" property="discountsSeq" />
+    <result column="discountAmount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="getDate" jdbcType="DATE" property="getDate" />
+    <result column="expiryDate" jdbcType="DATE" property="expiryDate" />
+    <result column="promoType" jdbcType="VARCHAR" property="promoType" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="userNo" jdbcType="VARCHAR" property="userNo" />
+    <result column="userMobile" jdbcType="VARCHAR" property="userMobile" />
+    <result column="userEmail" jdbcType="VARCHAR" property="userEmail" />
+    <result column="usedTime" jdbcType="TIMESTAMP" property="usedTime" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="model.EmallUserPromoCode">
+    <selectKey keyProperty="userPromoCode" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into emall_user_promo_code (activitySeq, merchantActSeq, discountsSeq, 
+      discountAmount, getDate, expiryDate, 
+      promoType, status, userNo, 
+      userMobile, userEmail, usedTime, 
+      createTime, updateTime)
+    values (#{activitySeq,jdbcType=BIGINT}, #{merchantActSeq,jdbcType=BIGINT}, #{discountsSeq,jdbcType=BIGINT}, 
+      #{discountAmount,jdbcType=DECIMAL}, #{getDate,jdbcType=DATE}, #{expiryDate,jdbcType=DATE}, 
+      #{promoType,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{userNo,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{usedTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="model.EmallUserPromoCode">
+    update emall_user_promo_code
+    set activitySeq = #{activitySeq,jdbcType=BIGINT},
+      merchantActSeq = #{merchantActSeq,jdbcType=BIGINT},
+      discountsSeq = #{discountsSeq,jdbcType=BIGINT},
+      discountAmount = #{discountAmount,jdbcType=DECIMAL},
+      getDate = #{getDate,jdbcType=DATE},
+      expiryDate = #{expiryDate,jdbcType=DATE},
+      promoType = #{promoType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      userNo = #{userNo,jdbcType=VARCHAR},
+      userMobile = #{userMobile,jdbcType=VARCHAR},
+      userEmail = #{userEmail,jdbcType=VARCHAR},
+      usedTime = #{usedTime,jdbcType=TIMESTAMP},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP}
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+    where userPromoCode = #{userPromoCode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select userPromoCode, activitySeq, merchantActSeq, discountsSeq, discountAmount, 
+    getDate, expiryDate, promoType, status, userNo, userMobile, userEmail, usedTime, 
+    createTime, updateTime
+    from emall_user_promo_code
+  </select>
+</mapper>
