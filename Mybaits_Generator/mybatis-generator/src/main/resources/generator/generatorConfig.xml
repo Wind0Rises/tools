@@ -30,7 +30,7 @@
     	<!-- 格式化XML代码 -->
     	<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 		
-		<commentGenerator type="comment.MyCommentGenerator">
+		<commentGenerator type="com.liu.generator.comment.MyCommentGenerator">
 			<property name="supressDate" value="true"/>
 			<property name="addRemarkComments" value="true"/>
 		</commentGenerator>
@@ -44,23 +44,24 @@
 		
 		<!-- javaModelGenerator必须要有一个 -->
 		<!-- targetProject:指定生成Model文件的路径;  targetPackage:指定生成Model类的包名-->
-		<javaModelGenerator targetPackage="model.liu" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="com.liu.generator.create.model" targetProject="src/main/java">
 			<!--for MyBatis3/MyBatis3Simple自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter； -->
         	<property name="constructorBased" value="false"/>
-        	
 			<!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 		
-		<!-- 指定生成对应Mapper的位置 -->
-		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+		<!-- 指定生成对应Mapper的位置；一般都是指定到src/main/resources -->
+		<sqlMapGenerator targetPackage="com.liu.generator.create.mapper" targetProject="src/main/java"/>
 		
-		<!-- 指定对应dao的生成位置，以及包名 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="src/main/java"/>
+		<!-- 指定数据操作接口即对应dao的生成位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.liu.generator.create.dao" targetProject="src/main/java"/>
 		
-		<!-- 所要操作的数据库的表明 -->
+		<!-- 所要操作的数据库的表 -->
 		<table tableName="emall_user_promo_code" >
+			<!-- 指定生成实体类时是否使用实际的列名作为实体类的属性名 -->
 			<property name="useActualColumnNames" value="true"/>
+			<!-- 设置Insert返回主键； SELECT LAST_INSERT_ID()   -->
 			<generatedKey column="userPromoCode" sqlStatement="MySql" identity="true"/>
 		</table>
 	</context>
